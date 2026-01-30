@@ -94,9 +94,9 @@ header p {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
+    grid-template-columns: repeat(3, 1fr); /* 3 di atas, 3 di bawah */
+    column-gap: 25px; /* jarak kiri-kanan */
+    row-gap: 80px;    /* JARAK ATAS–BAWAH BARIS */
 
 .card {
     text-align: center;
