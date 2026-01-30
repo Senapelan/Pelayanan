@@ -149,6 +149,12 @@ header p {
     justify-items: center; /* ⬅️ INI KUNCINYA gambar posisi tengah jika tidk bukup 3 */
 }
 
+.grid > .card:last-child {
+    grid-column: 1 / -1;     /* Ambil satu baris penuh */
+    justify-self: center;    /* Posisikan di tengah */
+}
+
+
 /* =========================
    CARD / MENU ITEM
    ========================= */
