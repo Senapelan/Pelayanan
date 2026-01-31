@@ -85,7 +85,7 @@ body{
   top:100%;
   left:0;
   background:#0f1b2d;
-  min-width:240px;
+  min-width:150px;
   padding:12px;
   border-radius:0 0 14px 14px;
   box-shadow:0 25px 45px rgba(0,0,0,.45);
@@ -478,9 +478,147 @@ body{
     gap:4px;
   }
 }
-
-  
 </style>
+
+<style>
+.info-section{
+  padding: 40px 20px;
+  background: #f5f6f8;
+}
+
+.info-container{
+  max-width: 2400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* BOX PUTIH */
+.info-box{
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+/* JUDUL DENGAN GARIS MERAH */
+.box-title{
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.box-title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  width: 4px;
+  height: 80%;
+  background: #e53935;
+  border-radius: 10px;
+}
+
+/* KONTAK */
+.brand{
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* TENTANG KAMI LIST */
+.tentang-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tentang-list li{
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: #f7f7f7;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.tentang-list li:hover{
+  background: #e3f2fd;
+}
+
+/* hilangkan garis link */
+
+.tentang-list li a{
+  display: block;
+  text-decoration: none;
+  color: #222;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: .2s;
+}
+
+.tentang-list li a:hover{
+  background: #e3f2fd;
+  color: #1e6bff;
+}
+
+
+/* MAP */
+.map-box iframe{
+  width: 100%;
+  height: 250px;
+  border: 0;
+  border-radius: 8px;
+}
+
+@media (max-width: 992px){
+  .info-container{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .map-box{
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 576px){
+  .info-container{
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<style>
+.brand-box{
+  display: flex;
+  align-items: center;
+  gap: 20px; /* jarak logo & teks */
+  margin-bottom: 12px;
+}
+
+.brand-box img{
+  width: 50px;
+  height: auto;
+}
+
+.brand-box strong{
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+@media(max-width:576px){
+  .brand-box img{
+    width: 42px;
+  }
+
+  .brand-box strong{
+    font-size: 15px;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -492,8 +630,10 @@ body{
   </div>
 
   <nav class="nav-desktop">
+
     <a href="#">Beranda</a>
-    <div class="nav-item">
+
+   <div class="nav-item">
       <a href="#">Pelayanan ▾</a>
       <div class="dropdown">
         <a href="#">SI CEPAT</a>
@@ -501,7 +641,8 @@ body{
         <a href="#">Unduh Berkas</a>
       </div>
     </div>
-    <div class="nav-item">
+
+   <div class="nav-item">
       <a href="#">Lembaga ▾</a>
       <div class="dropdown">
         <a href="#">RW</a>
@@ -512,7 +653,21 @@ body{
         <a href="#">LPS</a>
       </div>
     </div>
+
     <a href="#profil">Profil</a>
+    
+    <div class="nav-item">
+      <a href="#">Publikasi ▾</a>
+      <div class="dropdown">
+        <a href="#">Surat Keputusan</a>
+        <a href="#">Dokumen</a>
+        <a href="#">Peraturan</a>
+        <a href="#">Foto Kegiatan</a>
+        <a href="#">Karang Taruna</a>
+        <a href="#">Video Keigiatan</a>
+      </div>
+    </div>  
+    
     <a href="#kontak">Kontak</a>
   </nav>
 
@@ -531,13 +686,13 @@ body{
   </div>
 </section>
 
-<section class="section">
+<section class="section light" id="profil">
   <div class="profil-wrapper">
 
     <!-- BOX KIRI -->
     <div class="profil-card profil-kiri">
       <div class="profil-foto">
-        <img src="data/foto/lurah/juni.png" alt="Foto Lurah">
+        <img src="data/img/juni.png" alt="Foto Lurah">
       </div>
 
       <div class="sambutan">
@@ -565,10 +720,68 @@ body{
 </section>
 
   
-<section class="section light" id="profil">
-  <h2 class="text-center">Profil Kelurahan</h2>
+<section class="section light" id="layanan">
+  <h2 class="text-center">Layanan Kelurahan</h2>
   <p class="text-center">Pelayanan cepat, transparan, dan modern berbasis digital.</p>
 </section>
+
+
+<section class="info-section">
+  <div class="info-container">
+
+    <!-- KIRI: KONTAK KAMI -->
+    <div class="info-box">
+      <h3 class="box-title">Kontak Kami</h3>
+
+      <div class="brand-box">
+  <img src="data/foto/favico/favico.png" alt="Logo Pemko">
+  <strong>
+    Kelurahan Padang Terubuk<br>
+    Kecamatan Senapelan
+  </strong>
+</div>
+
+
+      <p>
+        <strong>Alamat:</strong><br>
+        Jalan Melur No. 4 RT 004 RW 005
+      </p>
+
+      <p>
+        <strong>No. Tlp:</strong> (0761) 08562<br>
+        <strong>Email:</strong> terubukberjaya@gmail.com<br>
+        <strong>WhatsApp:</strong> 0821-7008-9590
+      </p>
+    </div>
+
+    <!-- TENGAH: TENTANG KAMI -->
+    <div class="info-box">
+      <h3 class="box-title">Tentang Kami</h3>
+
+      <ul class="tentang-list">
+  <li><a href="#sejarah">Sejarah</a></li>
+  <li><a href="#struktur">Struktur Organisasi</a></li>
+  <li><a href="#pegawai">Pegawai</a></li>
+  <li><a href="#visi-misi">Visi dan Misi</a></li>
+  <li><a href="#unit-kerja">Unit Kerja</a></li>
+</ul>
+    </div>
+
+    <!-- KANAN: GOOGLE MAP -->
+    <div class="info-box map-box">
+      <h3 class="box-title">Lokasi Kantor Lurah Padang Terubuk</h3>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.58084095162!2d101.42387745676942!3d0.5337327482442705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5ac0aac8ee4c5%3A0xc14034fc37ad8419!2sKantor%20Lurah%20Padang%20Terubuk!5e0!3m2!1sen!2sid!4v1769890786275!5m2!1sen!2sid"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+
 
 <footer class="footer" id="kontak">
   © 2026 Senapelan Satu Pintu
@@ -605,7 +818,34 @@ body{
   </div>
 
   <a href="#profil">Profil</a>
-  <a href="#kontak">Kontak</a>
+
+  <a href="javascript:void(0)" onclick="toggleSub('submenuPublikasi')">Publikasi</a>
+  <div class="submenu" id="submenuPublikasi">
+    <a href="#">Surat Keputusan</a>
+    <a href="#">Dokumen</a>
+    <a href="#">Peraturan</a>
+    <a href="#">Foto Kegiatan</a>
+    <a href="#">Video Keigiatan</a>
+  </div>
+
+  <a href="javascript:void(0)" onclick="toggleSub('submenuMedia Sosial')">Media Sosial</a>
+  <div class="submenu" id="submenuMedia Sosial">
+    <a href="#">FaceBook</a>
+    <a href="#">Instagram</a>
+    <a href="#">Twitter</a>
+    <a href="#">Discord</a>
+    <a href="#">Bloger</a>
+    <a href="#">Youtube</a>
+  </div>
+
+  <a href="javascript:void(0)" onclick="toggleSub('submenuKontak')">Kontak</a>
+  <div class="submenu" id="submenuKontak">
+    <a href="#">Komunitas Kelurahan</a>
+    <a href="#">Live Chat WhastApp Petugas</a>
+    <a href="https://www.lapor.go.id/">Pengaduan Online Rakyat</a>
+    <a href="#">Pengaduan Kelurahan</a>
+  </div>
+  <a href="#">___________________________________</a>
 </div>
 
 <script>
