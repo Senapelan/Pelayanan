@@ -619,6 +619,75 @@ body{
 }
 </style>
 
+<style>
+.layanan-icons{
+  max-width: 1200px;
+  margin: 40px auto 20px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.icon-item{
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 12px;
+  text-align: center;
+  text-decoration: none;
+  color: #222;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: all .25s ease;
+}
+
+.icon-item img{
+  width: 64px;
+  height: auto;
+  margin-bottom: 12px;
+  transition: transform .25s ease;
+}
+
+.icon-item span{
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* HOVER PROFESIONAL */
+.icon-item:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(30,107,255,.25);
+}
+
+.icon-item:hover img{
+  transform: scale(1.08);
+}
+
+.icon-item:hover span{
+  color: #1e6bff;
+}
+
+@media(max-width: 992px){
+  .layanan-icons{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media(max-width: 576px){
+  .layanan-icons{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .icon-item img{
+    width: 56px;
+  }
+
+  .icon-item span{
+    font-size: 13px;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -634,7 +703,7 @@ body{
     <a href="#">Beranda</a>
 
    <div class="nav-item">
-      <a href="#">Pelayanan ▾</a>
+      <a href="#layanan">Pelayanan ▾</a>
       <div class="dropdown">
         <a href="#">SI CEPAT</a>
         <a href="#">Persyaratan</a>
@@ -692,7 +761,7 @@ body{
     <!-- BOX KIRI -->
     <div class="profil-card profil-kiri">
       <div class="profil-foto">
-        <img src="data/foto/lurah/juni.png" alt="Foto Lurah">
+        <img src="data/img/juni.png" alt="Foto Lurah">
       </div>
 
       <div class="sambutan">
@@ -719,14 +788,27 @@ body{
   </div>
 </section>
 
-  
-<section class="section light" id="layanan">
-  <h2 class="text-center">Layanan Kelurahan</h2>
-  <p class="text-center">Pelayanan cepat, transparan, dan modern berbasis digital.</p>
+
+<section class="layanan-icons" id="layanan">
+  <a href="#" class="icon-item">
+    <img src="data/foto/gambarpelayanan/sicepat.png" alt="SI CEPAT">
+    <span>SI CEPAT</span>
+  </a>
+
+  <a href="#" class="icon-item">
+    <img src="data/foto/gambarpelayanan/persyaratan.png" alt="Persyaratan">
+    <span>Persyaratan</span>
+  </a>
+
+  <a href="#" class="icon-item">
+    <img src="data/foto/gambarpelayanan/unduhberkas.png" alt="Unduh Berkas">
+    <span>Unduh Berkas</span>
+  </a>
 </section>
 
 
-<section class="info-section">
+
+<section class="info-section" id="kontak">
   <div class="info-container">
 
     <!-- KIRI: KONTAK KAMI -->
