@@ -277,7 +277,33 @@ body{
   color:rgba(255,255,255,.7);
 }
 
-/* ================= panah ================= */
+/* ================= MOBILE MENU HOVER / ACTIVE EFFECT ================= */
+
+/* efek sentuh / hover menu utama */
+.mobile-menu a{
+  transition:.25s ease;
+}
+
+/* saat disentuh (mobile) atau hover (desktop kecil) */
+.mobile-menu a:hover,
+.mobile-menu a:focus{
+  background:rgba(255,255,255,.08);
+  transform:translateX(6px);
+}
+
+/* kondisi aktif (menu aktif / submenu terbuka) */
+.mobile-menu a.active{
+  background:rgba(255,255,255,.08);
+  transform:translateX(6px);
+}
+
+.submenu a{
+  margin-left:15px;
+  font-size:13px;
+}
+
+
+/* ================= PANAH TEMBAK ADEK ================= */
 /* link yg punya submenu */
 .mobile-menu a[onclick]{
   position:relative;
