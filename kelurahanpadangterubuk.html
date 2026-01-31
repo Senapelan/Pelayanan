@@ -387,6 +387,7 @@ body{
 const mobileMenu = document.getElementById("mobileMenu");
 const overlay = document.querySelector(".menu-overlay");
 
+/* ===== OPEN / CLOSE MENU ===== */
 function openMenu(){
   mobileMenu.classList.add("active");
   overlay.classList.add("active");
@@ -395,37 +396,44 @@ function openMenu(){
 function closeMenu(){
   mobileMenu.classList.remove("active");
   overlay.classList.remove("active");
+
+  // tutup semua submenu saat menu ditutup
+  document.querySelectorAll(".submenu").forEach(sub=>{
+    sub.style.display = "none";
+  });
+  document.querySelectorAll(".mobile-menu a[onclick]").forEach(a=>{
+    a.classList.remove("active");
+  });
 }
 
 overlay.addEventListener("click", closeMenu);
 
+/* ===== TOGGLE SUBMENU + PANAH ===== */
 function toggleSub(id){
   const sub = document.getElementById(id);
+  const btn = event.currentTarget;
+  const isOpen = sub.style.display === "block";
+
+  // tutup semua submenu & reset panah
   document.querySelectorAll(".submenu").forEach(el=>{
-    if(el !== sub) el.style.display = "none";
+    el.style.display = "none";
   });
-  sub.style.display = sub.style.display === "block" ? "none" : "block";
+  document.querySelectorAll(".mobile-menu a[onclick]").forEach(a=>{
+    a.classList.remove("active");
+  });
+
+  // kalau sebelumnya tertutup → buka
+  if(!isOpen){
+    sub.style.display = "block";
+    btn.classList.add("active");
+  }
 }
 
-window.addEventListener("scroll",()=>{
+/* ===== HEADER SCROLL ===== */
+window.addEventListener("scroll", ()=>{
   document.getElementById("header")
     .classList.toggle("scrolled", window.scrollY > 50);
 });
-
-  function toggleSub(id){
-  const sub = document.getElementById(id);
-  const btn = event.currentTarget;
-
-  document.querySelectorAll(".submenu").forEach(el=>{
-    el.style.display="none";
-    el.previousElementSibling?.classList.remove("active");
-  });
-
-  const open = sub.style.display==="block";
-  sub.style.display = open ? "none" : "block";
-  btn.classList.toggle("active", !open);
-}
-
 </script>
 
 </body>
