@@ -247,7 +247,13 @@ body{
 }
 
 /* ================= RESPONSIVE ================= */
-@media(max-width:2499px){
-  .nav-desktop{display:none;}
-  .menu-btn{display:block;}
+@media (max-width: 1024px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
 }
+
