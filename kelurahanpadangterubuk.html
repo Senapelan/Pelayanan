@@ -183,7 +183,7 @@ body{
   opacity:0;
   visibility:hidden;
   transition:.3s;
-  z-index:1500;
+  z-index:4000;
 }
 
 .menu-overlay.active{
@@ -201,7 +201,7 @@ body{
   background:#0c1f33;
   padding:20px;
   transition:.35s;
-  z-index:1600;
+  z-index:5000;
   overflow-y:auto;
 }
 
@@ -247,6 +247,27 @@ body{
   font-size:13px;
   color:rgba(255,255,255,.7);
 }
+
+/* ================= panah ================= */
+/* link yg punya submenu */
+.mobile-menu a[onclick]{
+  position:relative;
+  padding-right:36px;
+}
+
+/* icon panah */
+.mobile-menu a[onclick]::after{
+  content:"▾";
+  position:absolute;
+  right:14px;
+  transition:.3s;
+}
+
+/* saat submenu terbuka */
+.mobile-menu a.active::after{
+  transform:rotate(180deg);
+}
+
 
 /* ================= SUBMENU ================= */
 .submenu{
@@ -390,6 +411,21 @@ window.addEventListener("scroll",()=>{
   document.getElementById("header")
     .classList.toggle("scrolled", window.scrollY > 50);
 });
+
+  function toggleSub(id){
+  const sub = document.getElementById(id);
+  const btn = event.currentTarget;
+
+  document.querySelectorAll(".submenu").forEach(el=>{
+    el.style.display="none";
+    el.previousElementSibling?.classList.remove("active");
+  });
+
+  const open = sub.style.display==="block";
+  sub.style.display = open ? "none" : "block";
+  btn.classList.toggle("active", !open);
+}
+
 </script>
 
 </body>
